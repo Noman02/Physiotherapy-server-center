@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 const Register = () => {
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser, popupSignIn, updateUserProfile } =
+    useContext(AuthContext);
 
   const handleRegister = (event) => {
     event.preventDefault();
@@ -22,6 +23,10 @@ const Register = () => {
         alert("user done");
       })
       .catch((error) => console.log(error));
+  };
+
+  const handlePopup = () => {
+    popupSignIn();
   };
 
   const updateUser = (displayName, photoURL) => {
@@ -101,7 +106,11 @@ const Register = () => {
           <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
         </div>
         <div className="flex justify-center space-x-4">
-          <button aria-label="Log in with Google" className="p-3 rounded-sm">
+          <button
+            onClick={handlePopup}
+            aria-label="Log in with Google"
+            className="p-3 rounded-sm hover:text-cyan-600 duration-300"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 32 32"

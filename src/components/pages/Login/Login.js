@@ -4,7 +4,7 @@ import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
 
 const Login = () => {
-  const { logIn } = useContext(AuthContext);
+  const { logIn, popupSignIn } = useContext(AuthContext);
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -20,6 +20,11 @@ const Login = () => {
       })
       .catch((error) => toast.error(error));
   };
+
+  const handlePopup = () => {
+    popupSignIn();
+  };
+
   return (
     <div className="flex justify-center my-8">
       <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-gray-700 text-white">
@@ -66,7 +71,11 @@ const Login = () => {
           <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
         </div>
         <div className="flex justify-center space-x-4">
-          <button aria-label="Log in with Google" className="p-3 rounded-sm">
+          <button
+            onClick={handlePopup}
+            aria-label="Log in with Google"
+            className="p-3 rounded-sm hover:text-cyan-600 duration-300"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 32 32"
