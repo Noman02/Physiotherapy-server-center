@@ -1,14 +1,35 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Login = () => {
+  const { logIn } = useContext(AuthContext);
+  const handleLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+
+    logIn(email, password)
+      .then((result) => {
+        console.log(result.user);
+        form.reset();
+        alert("success");
+      })
+      .catch((error) => toast.error(error));
+  };
   return (
     <div className="flex justify-center my-8">
       <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-gray-700 text-white">
         <h1 className="text-2xl font-bold text-center">Login</h1>
-        <form className="space-y-6 ng-untouched ng-pristine ng-valid">
+        <form
+          onSubmit={handleLogin}
+          className="space-y-6 ng-untouched ng-pristine ng-valid"
+        >
           <div className="space-y-1 text-sm">
-            <label for="username" className="block dark:text-gray-400">
+            <label htmlFor="username" className="block dark:text-gray-400">
               Email
             </label>
             <input
@@ -16,11 +37,11 @@ const Login = () => {
               name="email"
               id="email"
               placeholder="email"
-              className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
+              className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400 text-black"
             />
           </div>
           <div className="space-y-1 text-sm">
-            <label for="password" className="block dark:text-gray-400">
+            <label htmlFor="password" className="block dark:text-gray-400">
               Password
             </label>
             <input
@@ -28,7 +49,7 @@ const Login = () => {
               name="password"
               id="password"
               placeholder="Password"
-              className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
+              className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400 text-black"
             />
           </div>
           <div>

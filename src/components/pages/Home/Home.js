@@ -24,14 +24,12 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="text-center">
-          <h2>services</h2>
-          <Link>
-            <button className="btn btn-outline hover:bg-cyan-600">
-              See All
-            </button>
-          </Link>
-        </div>
+      </div>
+      <div className="text-center">
+        <h2>services</h2>
+        <Link>
+          <button className="btn btn-outline hover:bg-cyan-600">See All</button>
+        </Link>
       </div>
       <Choose></Choose>
       <Article></Article>
