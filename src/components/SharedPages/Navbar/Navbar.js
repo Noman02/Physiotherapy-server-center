@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="">
+    <div className="mt-6">
       <div className="navbar bg-base-100 shadow-2xl">
         <div className="navbar-start">
           <div className="dropdown">
@@ -78,7 +78,12 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Get started</a>
+          <Link to="/login">
+            <button className="btn btn-ghost">Login</button>
+          </Link>
+          <Link to="/register">
+            <button className="btn btn-ghost">Register</button>
+          </Link>
         </div>
       </div>
     </div>
