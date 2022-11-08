@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import img from "../../../assets/home-bg.jpg";
+import img from "../../../assets/doctor.jpg";
+import Article from "./Article/Article";
 import Choose from "./Choose/Choose";
 
 const Home = () => {
   return (
     <div>
-      <div>
-        <div className="hero mt-12">
+      <div className="bg-base-200">
+        <div className="hero bg-base-200 mt-12">
           <div className="hero-content flex-col lg:flex-row-reverse">
             <img src={img} alt="" className="max-w-sm rounded-lg shadow-2xl" />
             <div>
@@ -24,7 +25,7 @@ const Home = () => {
           </div>
         </div>
         <div className="text-center">
-          <h2> Three service</h2>
+          <h2>services</h2>
           <Link>
             <button className="btn btn-outline hover:bg-cyan-600">
               See All
@@ -33,6 +34,7 @@ const Home = () => {
         </div>
       </div>
       <Choose></Choose>
+      <Article></Article>
     </div>
   );
 };
