@@ -1,9 +1,14 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
+
   const { logIn, popupSignIn } = useContext(AuthContext);
   const handleLogin = (event) => {
     event.preventDefault();
@@ -16,7 +21,8 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         form.reset();
-        alert("success");
+        toast.success("successfully logged in");
+        navigate(from, { replace: true });
       })
       .catch((error) => toast.error(error));
   };

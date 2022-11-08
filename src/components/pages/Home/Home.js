@@ -27,7 +27,7 @@ const Home = () => {
               </p>
               <Link to="/services">
                 <button className="btn bg-cyan-600">
-                  Get Started <FaArrowRight className="ml-2"></FaArrowRight>
+                  Best Services <FaArrowRight className="ml-2"></FaArrowRight>
                 </button>
               </Link>
             </div>
