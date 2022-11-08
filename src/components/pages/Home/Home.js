@@ -1,13 +1,15 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
 import img from "../../../assets/doctor.jpg";
+
 import AllServices from "./AllServices/AllServices";
 import Article from "./Article/Article";
 import Choose from "./Choose/Choose";
 
 const Home = () => {
   const services = useLoaderData();
-  console.log(services);
+
   return (
     <div>
       <div className="bg-base-200">
@@ -23,7 +25,11 @@ const Home = () => {
                 He is providing high quality{" "}
                 <span className="text-cyan-600">Physiotherapy</span> Services
               </p>
-              <button className="btn bg-cyan-600">Get Started</button>
+              <Link to="/services">
+                <button className="btn bg-cyan-600">
+                  Get Started <FaArrowRight className="ml-2"></FaArrowRight>
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -36,10 +42,11 @@ const Home = () => {
           {services.map((service) => (
             <AllServices key={services._id} service={service}></AllServices>
           ))}
-
-          <Link>
-            <button className="btn btn-outline hover:bg-cyan-600">
-              See All
+        </div>
+        <div className="flex justify-center mt-4">
+          <Link to="/services">
+            <button className="btn bg-cyan-600">
+              See all services <FaArrowRight className="ml-2"></FaArrowRight>
             </button>
           </Link>
         </div>
