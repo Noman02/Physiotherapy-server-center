@@ -1,10 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import img from "../../../assets/doctor.jpg";
+import AllServices from "./AllServices/AllServices";
 import Article from "./Article/Article";
 import Choose from "./Choose/Choose";
 
 const Home = () => {
+  const services = useLoaderData();
+  console.log(services);
   return (
     <div>
       <div className="bg-base-200">
@@ -25,11 +28,21 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="text-center">
-        <h2>services</h2>
-        <Link>
-          <button className="btn btn-outline hover:bg-cyan-600">See All</button>
-        </Link>
+      <div className="mt-12">
+        <h2 className="text-center text-cyan-600 font-semibold text-3xl my-4">
+          Get world class service
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((service) => (
+            <AllServices key={services._id} service={service}></AllServices>
+          ))}
+
+          <Link>
+            <button className="btn btn-outline hover:bg-cyan-600">
+              See All
+            </button>
+          </Link>
+        </div>
       </div>
       <Choose></Choose>
       <Article></Article>
