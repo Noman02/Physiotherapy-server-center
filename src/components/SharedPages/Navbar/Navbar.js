@@ -59,7 +59,7 @@ const Navbar = () => {
           </div>
           <Link>
             <button className="btn btn-ghost normal-case text-xl">
-              Physiotherapist
+              <p className="text-cyan-600">Physiotherapist Service</p>
             </button>
           </Link>
         </div>
