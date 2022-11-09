@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
+import { toast } from "react-hot-toast";
 
 const Register = () => {
   const { createUser, popupSignIn, updateUserProfile } =
@@ -20,7 +21,7 @@ const Register = () => {
         updateUser(displayName, photoURL);
         console.log(user);
         form.reset();
-        alert("user done");
+        toast.success("Registered successfully");
       })
       .catch((error) => console.log(error));
   };
@@ -45,7 +46,7 @@ const Register = () => {
           className="space-y-6 ng-untouched ng-pristine ng-valid"
         >
           <div className="space-y-1 text-sm">
-            <label htmlFor="username" className="block dark:text-gray-400">
+            <label htmlhtmlFor="username" className="block dark:text-gray-400">
               Username
             </label>
             <input
@@ -57,7 +58,7 @@ const Register = () => {
             />
           </div>
           <div className="space-y-1 text-sm">
-            <label htmlFor="username" className="block dark:text-gray-400">
+            <label htmlhtmlFor="username" className="block dark:text-gray-400">
               photoURL
             </label>
             <input
@@ -69,7 +70,7 @@ const Register = () => {
             />
           </div>
           <div className="space-y-1 text-sm">
-            <label htmlFor="email" className="block dark:text-gray-400">
+            <label htmlhtmlFor="email" className="block dark:text-gray-400">
               Email
             </label>
             <input
@@ -81,7 +82,7 @@ const Register = () => {
             />
           </div>
           <div className="space-y-1 text-sm">
-            <label htmlFor="password" className="block dark:text-gray-400">
+            <label htmlhtmlFor="password" className="block dark:text-gray-400">
               Password
             </label>
             <input

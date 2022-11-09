@@ -21,10 +21,10 @@ const Article = () => {
               target="_blank"
               className="underline dark:text-violet-400"
             >
-              <span itemprop="name"> Dr: Bruno</span>
+              <span itemProp="name"> Dr: Bruno</span>
             </a>
             on
-            <time datetime="2021-02-12 15:34:18-0200">Nov 10 2022</time>
+            <time dateTime="2021-02-12 15:34:18-0200">Nov 10 2022</time>
           </p>
         </div>
 

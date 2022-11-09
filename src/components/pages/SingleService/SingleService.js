@@ -6,7 +6,7 @@ const SingleService = ({ service }) => {
   return (
     <div className="card w-96 h-full bg-base-100 shadow-xl">
       <figure>
-        <img src={picture} alt="Shoes" />
+        <img className="h-80 w-ful" src={picture} alt="" />
       </figure>
       <div className="card-body">
         <h2 className="card-title">{name}</h2>

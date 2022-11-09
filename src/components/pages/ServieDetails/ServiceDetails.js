@@ -1,25 +1,31 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { FaStarHalfAlt } from "react-icons/fa";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
+import Review from "./Review";
 
 const ServiceDetails = () => {
   const { user } = useContext(AuthContext);
+  console.log(user);
+  const [reviews, setReviews] = useState([]);
+
   const service = useLoaderData();
   const { _id, name, picture, price, rating, description } = service;
-
   const handleAddReview = (event) => {
     event.preventDefault();
     const form = event.target;
     const textarea = form.textarea.value;
+    const email = form.email.value;
 
     const userReview = {
       review: _id,
       reviewName: name,
       textarea,
+      email,
     };
 
+    // create post
     fetch("http://localhost:5000/reviews", {
       method: "POST",
       headers: {
@@ -36,6 +42,12 @@ const ServiceDetails = () => {
       })
       .catch((error) => console.error(error));
   };
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/reviews?email=${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => setReviews(data));
+  }, [user?.email]);
 
   return (
     <div>
@@ -71,20 +83,40 @@ const ServiceDetails = () => {
       {/* review section  */}
 
       <section className="p-6 my-12 bg-gray-600 dark:text-gray-50">
+        <h2 className="text-3xl text-center text-cyan-300 font-bold">
+          Customer Reviews
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {reviews.map((review) => (
+            <Review key={review._id} review={review}></Review>
+          ))}
+        </div>
         <form
           onSubmit={handleAddReview}
           className="container flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid"
         >
           <fieldset className="grid grid-cols-4 gap-4 p-6 rounded-md shadow-sm dark:bg-gray-900">
             <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
+              <div className="col-span-full sm:col-span-3">
+                <label htmlFor="email" className="text-sm text-white">
+                  Email
+                </label>
+                <input
+                  name="email"
+                  type="email"
+                  placeholder="Email"
+                  className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900 p-4"
+                />
+              </div>
               <div className="col-span-full">
-                <label for="address" className="text-sm text-white">
-                  Give me your feedback
+                <label htmlFor="address" className="text-white">
+                  <h2 className="text-2xl">Your opinion matters!</h2>
+                  <span>How was your experience? </span>
                 </label>
                 <textarea
                   name="textarea"
                   className="textarea textarea-bordered w-full h-40"
-                  placeholder="Type Here."
+                  placeholder="Type here."
                 ></textarea>
               </div>
               <div>
