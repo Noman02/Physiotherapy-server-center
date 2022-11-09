@@ -66,7 +66,7 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <Link>
+          <Link to="/">
             <button className="btn btn-ghost normal-case text-xl">
               <p className="text-cyan-600">Physiotherapy Service</p>
             </button>
@@ -88,9 +88,20 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           {user?.uid ? (
-            <button onClick={handleLogOut} className="btn btn-ghost">
-              Logout
-            </button>
+            <>
+              <Link to="/addService">
+                <button className="mr-6 font-semibold text-xl border-b-2 border-cyan-600 hover:text-cyan-600">
+                  Add Service
+                </button>
+              </Link>
+
+              <button
+                onClick={handleLogOut}
+                className="btn btn-outline btn-error"
+              >
+                Logout
+              </button>
+            </>
           ) : (
             <>
               <Link to="/login">
@@ -98,6 +109,11 @@ const Navbar = () => {
               </Link>
               <Link to="/register">
                 <button className="btn btn-ghost">Register</button>
+              </Link>
+              <Link to="/myReviews">
+                <button className="btn btn-ghost border-b-2 border-cyan-600 hover:text-cyan-600">
+                  My Reviews
+                </button>
               </Link>
             </>
           )}

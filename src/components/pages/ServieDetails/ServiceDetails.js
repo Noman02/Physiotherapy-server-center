@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { FaStarHalfAlt } from "react-icons/fa";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
@@ -7,10 +7,9 @@ import Review from "./Review";
 
 const ServiceDetails = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
   const [reviews, setReviews] = useState([]);
-
   const service = useLoaderData();
+
   const { _id, name, picture, price, rating, description } = service;
   const handleAddReview = (event) => {
     event.preventDefault();
@@ -44,10 +43,10 @@ const ServiceDetails = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?email=${user?.email}`)
+    fetch(`http://localhost:5000/reviews?reviewName=${service?.name}`)
       .then((res) => res.json())
       .then((data) => setReviews(data));
-  }, [user?.email]);
+  }, [service?.name]);
 
   return (
     <div>
@@ -106,6 +105,8 @@ const ServiceDetails = () => {
                   type="email"
                   placeholder="Email"
                   className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900 p-4"
+                  defaultValue={user?.email}
+                  readOnly
                 />
               </div>
               <div className="col-span-full">
@@ -117,13 +118,21 @@ const ServiceDetails = () => {
                   name="textarea"
                   className="textarea textarea-bordered w-full h-40"
                   placeholder="Type here."
+                  required
                 ></textarea>
-              </div>
-              <div>
-                <button className="btn bg-cyan-600">Add Review</button>
               </div>
             </div>
           </fieldset>
+          <div className="w-full">
+            {user?.uid ? (
+              <button className="btn bg-cyan-600">Add Review</button>
+            ) : (
+              <Link className="text-white text-xl" to="/login">
+                Please <span className="text-cyan-400">Login</span> to add
+                review{" "}
+              </Link>
+            )}
+          </div>
         </form>
       </section>
     </div>

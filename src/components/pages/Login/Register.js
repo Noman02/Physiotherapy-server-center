@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import { toast } from "react-hot-toast";
 
 const Register = () => {
+  const navigate = useNavigate();
   const { createUser, popupSignIn, updateUserProfile } =
     useContext(AuthContext);
 
@@ -22,6 +23,7 @@ const Register = () => {
         console.log(user);
         form.reset();
         toast.success("Registered successfully");
+        navigate("/");
       })
       .catch((error) => console.log(error));
   };
