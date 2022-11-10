@@ -1,15 +1,27 @@
 import React, { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 const Update = () => {
   const userReviewed = useLoaderData();
-  // console.log(userReviewed);
-
   const [review, setReview] = useState(userReviewed);
 
   const handleUpdateReview = (event) => {
     event.preventDefault();
-    console.log(review);
+
+    fetch(`http://localhost:5000/reviews/${userReviewed._id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(review),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          toast.success("Review Updated Successfully");
+        }
+      });
   };
 
   const handleInputChange = (event) => {
@@ -38,6 +50,7 @@ const Update = () => {
               placeholder="Email"
               className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900 p-4"
               defaultValue={userReviewed?.email}
+              readOnly
             />
           </div>
           <div className="col-span-full my-8 w-3/4">
@@ -54,6 +67,7 @@ const Update = () => {
             ></textarea>
           </div>
         </div>
+
         <button className="btn bg-cyan-600">Update</button>
       </form>
     </div>

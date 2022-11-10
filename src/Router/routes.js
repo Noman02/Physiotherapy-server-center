@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import AddService from "../components/pages/AddService/AddService";
 import Home from "../components/pages/Home/Home";
 import Login from "../components/pages/Login/Login";
 import Register from "../components/pages/Login/Register";
@@ -47,6 +48,10 @@ const routes = createBrowserRouter([
         element: <Update></Update>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/reviews/${params.id}`),
+      },
+      {
+        path: "/addService",
+        element: <AddService></AddService>,
       },
     ],
   },
