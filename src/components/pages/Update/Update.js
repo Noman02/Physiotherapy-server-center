@@ -9,13 +9,16 @@ const Update = () => {
   const handleUpdateReview = (event) => {
     event.preventDefault();
 
-    fetch(`http://localhost:5000/reviews/${userReviewed._id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(review),
-    })
+    fetch(
+      `https://physiotherapy-server.vercel.app/reviews/${userReviewed._id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(review),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {

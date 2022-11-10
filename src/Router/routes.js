@@ -21,12 +21,12 @@ const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/service"),
+        loader: () => fetch("https://physiotherapy-server.vercel.app/service"),
       },
       {
         path: "/services",
         element: <Services></Services>,
-        loader: () => fetch("http://localhost:5000/services"),
+        loader: () => fetch("https://physiotherapy-server.vercel.app/services"),
       },
       {
         path: "/blog",
@@ -36,7 +36,9 @@ const routes = createBrowserRouter([
         path: "/serviceDetails/:id",
         element: <ServiceDetails></ServiceDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/services/${params.id}`),
+          fetch(
+            `https://physiotherapy-server.vercel.app/services/${params.id}`
+          ),
       },
 
       {
@@ -59,7 +61,7 @@ const routes = createBrowserRouter([
         path: "/update/:id",
         element: <Update></Update>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/reviews/${params.id}`),
+          fetch(`https://physiotherapy-server.vercel.app/reviews/${params.id}`),
       },
       {
         path: "/addService",

@@ -25,7 +25,7 @@ const ServiceDetails = () => {
     };
 
     // create post
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://physiotherapy-server.vercel.app/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -43,7 +43,9 @@ const ServiceDetails = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?reviewName=${service?.name}`)
+    fetch(
+      `https://physiotherapy-server.vercel.app/reviews?reviewName=${service?.name}`
+    )
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, [service?.name]);

@@ -9,7 +9,7 @@ const MyReviews = () => {
   const handleDelete = (id) => {
     const agree = window.confirm("do you want to delete it?");
     if (agree) {
-      fetch(`http://localhost:5000/reviews/${id}`, {
+      fetch(`https://physiotherapy-server.vercel.app/reviews/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -24,7 +24,9 @@ const MyReviews = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?email=${user?.email}`)
+    fetch(
+      `https://physiotherapy-server.vercel.app/reviews?email=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, [user?.email]);
