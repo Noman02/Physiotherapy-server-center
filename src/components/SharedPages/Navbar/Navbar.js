@@ -4,6 +4,7 @@ import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  console.log(user);
 
   const handleLogOut = () => {
     logOut()
@@ -87,6 +88,15 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
+          {user?.uid && (
+            <>
+              <img
+                className="w-12 mr-2 rounded-full"
+                src={user.photoURL}
+                alt=""
+              />
+            </>
+          )}
           <Link to="/myReviews">
             <button className="btn btn-ghost border-b-2 border-cyan-600 hover:text-cyan-600 mr-3">
               My Reviews

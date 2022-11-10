@@ -42,16 +42,15 @@ const Blog = () => {
             />
             <div className="p-6 space-y-2">
               <h3 className="text-2xl font-semibold">
-                In usu laoreet repudiare legendos
+                Difference between sql and nosql!
               </h3>
-              <span className="text-xs dark:text-gray-400">
-                January 21, 2021
-              </span>
+
               <p>
-                Mei ex aliquid eleifend forensibus, quo ad dicta apeirian
-                neglegentur, ex has tantas percipit perfecto. At per tempor
-                albucius perfecto, ei probatus consulatu patrioque mea, ei
-                vocent delicata indoctum pri.
+                SQL is the programming language used to interface with
+                relational databases. (Relational databases model data as
+                records in rows and tables with logical links between them).
+                NoSQL is a class of DBMs that are non-relational and generally
+                do not use SQL.
               </p>
             </div>
           </Link>
@@ -68,16 +67,15 @@ const Blog = () => {
             />
             <div className="p-6 space-y-2">
               <h3 className="text-2xl font-semibold">
-                In usu laoreet repudiare legendos
+                What is JWT, and how does it work?
               </h3>
-              <span className="text-xs dark:text-gray-400">
-                January 22, 2021
-              </span>
+
               <p>
-                Mei ex aliquid eleifend forensibus, quo ad dicta apeirian
-                neglegentur, ex has tantas percipit perfecto. At per tempor
-                albucius perfecto, ei probatus consulatu patrioque mea, ei
-                vocent delicata indoctum pri.
+                What is JWT (JSON Web Token)? JSON Web Token (JWT) is an open
+                standard (RFC 7519) for securely transmitting information
+                between parties as JSON object. It is compact, readable and
+                digitally signed using a private key/ or a public key pair by
+                the Identity Provider(IdP)
               </p>
             </div>
           </Link>
@@ -94,16 +92,14 @@ const Blog = () => {
             />
             <div className="p-6 space-y-2">
               <h3 className="text-2xl font-semibold">
-                In usu laoreet repudiare legendos
+                What is the difference between javascript and NodeJS?
               </h3>
-              <span className="text-xs dark:text-gray-400">
-                January 23, 2021
-              </span>
+
               <p>
-                Mei ex aliquid eleifend forensibus, quo ad dicta apeirian
-                neglegentur, ex has tantas percipit perfecto. At per tempor
-                albucius perfecto, ei probatus consulatu patrioque mea, ei
-                vocent delicata indoctum pri.
+                vaScript is a simple programming language that can be used with
+                any browser that has the JavaScript Engine installed. Node. js,
+                on the other hand, is an interpreter or execution environment
+                for the JavaScript programming language
               </p>
             </div>
           </Link>
@@ -120,16 +116,15 @@ const Blog = () => {
             />
             <div className="p-6 space-y-2">
               <h3 className="text-2xl font-semibold">
-                In usu laoreet repudiare legendos
+                How does NodeJS handle multiple requests at the same time?
               </h3>
-              <span className="text-xs dark:text-gray-400">
-                January 23, 2021
-              </span>
+
               <p>
-                Mei ex aliquid eleifend forensibus, quo ad dicta apeirian
-                neglegentur, ex has tantas percipit perfecto. At per tempor
-                albucius perfecto, ei probatus consulatu patrioque mea, ei
-                vocent delicata indoctum pri.
+                How NodeJS handle multiple client requests? NodeJS receives
+                multiple client requests and places them into EventQueue. NodeJS
+                is built with the concept of event-driven architecture. NodeJS
+                has its own EventLoop which is an infinite loop that receives
+                requests and processes them
               </p>
             </div>
           </Link>

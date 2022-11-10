@@ -38,10 +38,11 @@ const Article = () => {
             <div className="flex flex-col">
               <h4 className="text-lg font-semibold text-cyan-600">Dr: Bruno</h4>
               <p className="dark:text-gray-400">
-                Sed non nibh iaculis, posuere diam vitae, consectetur neque.
-                Integer velit ligula, semper sed nisl in, cursus commodo elit.
-                Pellentesque sit amet mi luctus ligula euismod lobortis
-                ultricies et nibh.
+                Dr.<span className="text-cyan-600">Bruno</span> did a great job
+                with my first ever health exam. She explained everything to me
+                in a very clear manner. She was also kind and friendly. All of
+                the staff was great – they were helpful, patient and helped with
+                my
               </p>
             </div>
           </div>
