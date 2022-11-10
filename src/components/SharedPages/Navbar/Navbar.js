@@ -92,14 +92,14 @@ const Navbar = () => {
               My Reviews
             </button>
           </Link>
+          <Link to="/addService">
+            <button className="btn btn-ghost border-b-2 border-cyan-600 hover:text-cyan-600 mr-3">
+              Add Service
+            </button>
+          </Link>
+
           {user?.uid ? (
             <>
-              <Link to="/addService">
-                <button className="btn btn-ghost border-b-2 border-cyan-600 hover:text-cyan-600 mr-3">
-                  Add Service
-                </button>
-              </Link>
-
               <button
                 onClick={handleLogOut}
                 className="btn btn-outline btn-error"

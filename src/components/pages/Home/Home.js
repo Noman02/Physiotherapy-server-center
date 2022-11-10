@@ -16,6 +16,7 @@ const Home = () => {
         <div className="hero bg-base-200 mt-12">
           <div className="hero-content flex-col lg:flex-row-reverse">
             <img src={img} alt="" className="max-w-sm rounded-lg shadow-2xl" />
+
             <div>
               <h1 className="text-2xl font-bold">
                 <span className="text-cyan-600 font-bold">Dr: Bruno</span>{" "}

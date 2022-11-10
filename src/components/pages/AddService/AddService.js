@@ -38,7 +38,9 @@ const AddService = () => {
 
   return (
     <div>
-      <h2>from add service</h2>
+      <h2 className="text-cyan-600 text-3xl font-semibold text-center my-6">
+        Add Your Favorite Service.
+      </h2>
       <form
         onSubmit={handleAddService}
         className="container flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid bg-gray-900"
