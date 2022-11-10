@@ -87,10 +87,15 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
+          <Link to="/myReviews">
+            <button className="btn btn-ghost border-b-2 border-cyan-600 hover:text-cyan-600 mr-3">
+              My Reviews
+            </button>
+          </Link>
           {user?.uid ? (
             <>
               <Link to="/addService">
-                <button className="mr-6 font-semibold text-xl border-b-2 border-cyan-600 hover:text-cyan-600">
+                <button className="btn btn-ghost border-b-2 border-cyan-600 hover:text-cyan-600 mr-3">
                   Add Service
                 </button>
               </Link>
@@ -109,11 +114,6 @@ const Navbar = () => {
               </Link>
               <Link to="/register">
                 <button className="btn btn-ghost">Register</button>
-              </Link>
-              <Link to="/myReviews">
-                <button className="btn btn-ghost border-b-2 border-cyan-600 hover:text-cyan-600">
-                  My Reviews
-                </button>
               </Link>
             </>
           )}
